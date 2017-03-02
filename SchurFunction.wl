@@ -6,14 +6,13 @@ BeginPackage["SchurFunction`",{"YDTips`"}];
 Needs["LRCoeffCoproduct`"]
 
 
-SchurF::usage="SchurF[\[Mu],{q1,q2,..,qn,PS[qq1,Q1],...PS[qqn,Qn}] computes the Schur function with specified variables and paritioin.
+SchurF::usage="SchurF[\[Mu],{q1,q2,..,qn,PS[qq1,Q1],...PS[qqn,Qn}] computes the Schur function with specified variables and a paritition \[Mu].
 Here, PS[q,Q] means the set of infinite variables (Q,Qq,\!\(\*SuperscriptBox[\(Qq\), \(2\)]\),\!\(\*SuperscriptBox[\(Qq\), \(3\)]\),...) (Principal Specialization). PS[q]=PS[q,1]. The ordering of variables can be mixed: SchurF[\[Mu],{q,PS[qq],qqq,PS[q4,Q]}] is allowed."
-SuperSchurF::usage="SuperSchurF[\[Mu],vars1,vars2] computes the Super Schur function with specified variables and paritioin.
+SuperSchurF::usage="SuperSchurF[\[Mu],vars1,vars2] computes the Super Schur function with specified variables and a paritition \[Mu].
 PS[q,Q] can be used both in vars1 and vars2."
 SkewSchurF::usage="SkewSchurF[\[Mu],\[Nu],vars] compute the skew Schur function defined by a skew shape \[Mu]/\[Nu]. Details follows that of SchurF."
-PS::usage="Principal Specialization"
 SkewSuperSchurF::usage="SkewSuperSchurF[\[Mu],\[Nu],vars1,vars2] compute the skew super Schur function defined by a skew shape \[Mu]/\[Nu]. Details follows that of SchurF."
-PS::usage="Principal Specialization"
+PS::usage="Principal Specialization. See ?SchurF for the meaning. PS[q_]:=PS[q,1]."
 
 
 Begin["Private`"]
