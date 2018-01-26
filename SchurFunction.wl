@@ -35,10 +35,12 @@ Coprodsplit[\[Mu],f,g]=Sum_{\[Nu],\[Rho]}Subscript[(c^\[Mu]), \[Nu]\[Rho]]f[\[Nu
 Coprodsplitprime[{\[Nu]_,\[Rho]_}-> c_,f_,g_]:=c f[\[Nu]]g[\[Rho]]
 Coprodsplit[\[Mu]_,f_,g_]:=Total@(Coprodsplitprime[#,f,g]&/@(Normal@LRCoefficient[\[Mu]]))
 
+(*VanderMonde Determinant*)
+VanderMonderDet[x_List]:=Times@@(#[[1]]-#[[2]]&/@Subsets[Reverse[x],{2}])
 
 (*Schur function with finite variables*)
 SchurFFin[part_?(Length[#]>= 1&),vars_List]/;Length[part]<=Length[vars]:=Module[{n=Length[vars],tmp},tmp=C/@Range[n];
-Cancel[Det[Outer[Power,tmp,PadLeft[Reverse[part],n]+Range[0,n-1]]]/Det[LinearAlgebra`VandermondeMatrix[tmp]]]/.Thread[tmp:>vars]]
+Cancel[Det[Outer[Power,tmp,PadLeft[Reverse[part],n]+Range[0,n-1]]]/VanderMonderDet[tmp]]/.Thread[tmp:>vars]]
 SchurFFin[part_,vars_List]/;Length[part]>Length[vars]:=0
 SchurFFin[{},_]:=1
 
